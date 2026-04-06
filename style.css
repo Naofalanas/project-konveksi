@@ -1,0 +1,268 @@
+/* ================================================
+   style.css — KonveksiPro Landing Page
+   ================================================ */
+
+/* ---------- Smooth scroll ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background-color: #3B82F6;
+  color: white;
+}
+
+/* ---------- Header ---------- */
+#header {
+  background: transparent;
+}
+
+#header.scrolled {
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, .04);
+}
+
+/* When header is NOT scrolled (over dark hero) — white text */
+#header:not(.scrolled) #logo-text {
+  color: white;
+}
+
+#header:not(.scrolled) .nav-link {
+  color: rgba(255, 255, 255, .7);
+}
+
+#header:not(.scrolled) .nav-link:hover {
+  color: white;
+}
+
+#header:not(.scrolled) #mobile-toggle {
+  color: white;
+}
+
+/* When header IS scrolled — dark text */
+#header.scrolled #logo-text {
+  color: #1E1B4B;
+}
+
+#header.scrolled .nav-link {
+  color: #475569;
+}
+
+#header.scrolled .nav-link:hover {
+  color: #1E1B4B;
+}
+
+/* Logo */
+#header-logo {
+  transition: all .3s ease;
+}
+
+/* ---------- Nav links ---------- */
+.nav-link {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all .2s;
+}
+
+/* ---------- Hero animations ---------- */
+.anim-up {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: slideUp .7s ease forwards;
+}
+
+.anim-d1 { animation-delay: .15s; }
+.anim-d2 { animation-delay: .3s; }
+.anim-d3 { animation-delay: .45s; }
+.anim-d4 { animation-delay: .6s; }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Service cards ---------- */
+.service-card {
+  padding: 0;
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- Portfolio ---------- */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: auto;
+  transition: transform .6s ease;
+}
+
+/* Make wide items shorter, single items taller */
+.portfolio-item.col-span-2 img {
+  aspect-ratio: 8/5;
+}
+
+.portfolio-item:not(.col-span-2) img {
+  aspect-ratio: 5/6;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.06);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.3) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #93c5fd;
+  margin-bottom: 6px;
+}
+
+/* ---------- Step cards ---------- */
+.step-card {
+  position: relative;
+  padding: 28px 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  transition: all .3s;
+}
+
+.step-card:hover {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, .08);
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #3B82F6;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.step-card:hover .step-num {
+  background: #3B82F6;
+  color: white;
+}
+
+/* ---------- Social icons ---------- */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #1e293b;
+  color: #64748b;
+  transition: all .25s;
+}
+
+.social-icon:hover {
+  background: #3B82F6;
+  color: white;
+}
+
+/* ---------- Floating WA ---------- */
+.wa-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, .35);
+  transition: all .3s;
+}
+
+.wa-btn:hover {
+  background: #20bd5a;
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, .45);
+}
+
+.wa-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  opacity: .25;
+  animation: ping 2s cubic-bezier(0, 0, .2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 640px) {
+  .portfolio-item:not(.col-span-2) img {
+    aspect-ratio: 1/1;
+  }
+
+  .portfolio-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 70%);
+  }
+}
