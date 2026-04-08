@@ -15,55 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif&display=swap"
     rel="stylesheet" />
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            serif: ['Instrument Serif', 'Georgia', 'serif'],
-          },
-          colors: {
-            brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              300: '#93c5fd',
-              400: '#60a5fa',
-              500: '#3B82F6',  /* Electric Blue — primary */
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
-              950: '#172554',
-            },
-            cyan: {
-              50: '#E0F2FE',   /* Cyan Mist — light bg */
-              100: '#bae6fd',
-            },
-            neutral: {
-              50: '#f8fafc',
-              100: '#f1f5f9',
-              150: '#e9eef5',
-              200: '#e2e8f0',
-              300: '#cbd5e1',
-              400: '#94a3b8',
-              500: '#64748b',
-              600: '#475569',
-              700: '#334155',
-              800: '#1e293b',
-              900: '#1E1B4B',  /* Dark Indigo — headlines */
-              950: '#0f172a',
-            }
-          },
-        },
-      },
-    }
-  </script>
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="output.css" />
 </head>
 
 <body class="font-sans text-neutral-800 bg-white antialiased">
@@ -369,14 +321,34 @@
       <!-- Trusted by / Client logos -->
       <div class="mt-20 reveal" style="--delay:.15s">
         <p class="text-center text-xs font-semibold text-neutral-400 uppercase tracking-widest mb-8">Dipercaya oleh</p>
-        <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-40">
-          <!-- 🔄 REPLACE: Client logos below — swap placehold.co URLs with actual logos -->
-          <img src="img/puprlogo-konveksi.png" alt="Client 1" class="h-40 object-contain grayscale" />
-          <img src="img/fif2.png" alt="Client 2" class="h-20 object-contain grayscale" />
-          <img src="img/astralogo-konveksi.png" alt="Client 3" class="h-10 object-contain grayscale" />
-          <img src="img/ahmlogo-konveksi.png" alt="Client 4" class="h-10 object-contain grayscale" />
-          <img src="img/epsonlogo-konveksi.png" alt="Client 5" class="h-8 object-contain grayscale" />
-          <img src="img/kailogo-konveksi.png" alt="Client 6" class="h-8 object-contain grayscale" />
+
+        <!-- Scrollable Marquee Wrapper -->
+        <div class="relative w-full overflow-hidden group">
+          <!-- Fade edges -->
+          <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+          <!-- Logo Track (Draggable & Auto-scroll) -->
+          <div id="logo-carousel" class="flex w-full overflow-x-auto hide-scrollbar cursor-grab select-none">
+            <!-- First Set -->
+            <div class="flex items-center gap-x-14 md:gap-x-20 px-7 md:px-10 shrink-0" id="logo-track-1">
+              <img draggable="false" src="img/yamahalogo-konveksi.png" alt="Yamaha" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/yamahamusiclogo-konveksi.png" alt="Yamaha Music" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/hitachilogo-konveksi.png" alt="Hitachi" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/ahmlogo-konveksi.png" alt="AHM" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/epsonlogo-konveksi.png" alt="Epson" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/kailogo-konveksi.png" alt="KAI" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+            </div>
+            <!-- Second Set (Duplicate for seamless loop) -->
+            <div class="flex items-center gap-x-14 md:gap-x-20 px-7 md:px-10 shrink-0">
+              <img draggable="false" src="img/yamahalogo-konveksi.png" alt="Yamaha" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/yamahamusiclogo-konveksi.png" alt="Yamaha Music" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/hitachilogo-konveksi.png" alt="Hitachi" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/ahmlogo-konveksi.png" alt="AHM" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/epsonlogo-konveksi.png" alt="Epson" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+              <img draggable="false" src="img/kailogo-konveksi.png" alt="KAI" class="h-8 md:h-10 lg:h-11 w-auto object-contain flex-shrink-0 grayscale-0 opacity-100 sm:grayscale sm:opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -601,6 +573,73 @@
           <h3 class="font-bold text-neutral-900 mt-4 mb-2">Kirim & QC</h3>
           <p class="text-sm text-neutral-500 leading-relaxed">Quality control ketat sebelum packing. Kirim ke seluruh
             Indonesia via ekspedisi pilihan Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" class="py-20 sm:py-28 bg-brand-50">
+    <div class="max-w-[1000px] mx-auto px-5 sm:px-8 lg:px-12">
+      <div class="text-center max-w-xl mx-auto mb-14 reveal">
+        <p class="text-brand-600 text-sm font-semibold tracking-widest uppercase mb-3">Tanya Jawab</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight">
+          Paling Sering <span class="font-serif italic font-normal text-brand-600">Ditanyakan</span>
+        </h2>
+      </div>
+
+      <div class="space-y-4 reveal" style="--delay:.1s">
+        <!-- FAQ Item 1 -->
+        <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden faq-item transition-all duration-300">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none faq-btn">
+            <span class="font-semibold text-neutral-900 pr-5">Berapa minimum order (MOQ) untuk custom pakaian?</span>
+            <svg class="w-5 h-5 text-brand-500 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 pt-0 text-sm text-neutral-600 leading-relaxed">
+            Minimum order kami secara umum adalah 24 pcs per desain/model. Namun, untuk jenis jaket premium atau item spesial tertentu, minimum order bisa didiskusikan (mulai dari 12 pcs).
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden faq-item transition-all duration-300">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none faq-btn">
+            <span class="font-semibold text-neutral-900 pr-5">Bagaimana sistem pembayaran dan berapa DP-nya?</span>
+            <svg class="w-5 h-5 text-brand-500 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 pt-0 text-sm text-neutral-600 leading-relaxed">
+            Standar pembayaran adalah DP 50% setelah sampel disetujui (atau saat desain sudah deal) untuk memulai produksi massal. Pelunasan 50% dilakukan saat barang jadi dan siap dikirim.
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden faq-item transition-all duration-300">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none faq-btn">
+            <span class="font-semibold text-neutral-900 pr-5">Apakah hasil produksi bisa tidak sesuai dengan sampel?</span>
+            <svg class="w-5 h-5 text-brand-500 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 pt-0 text-sm text-neutral-600 leading-relaxed">
+            Tim QC kami memastikan kesesuaian produksi massal dengan sampel (akurasi warna, bahan, & ukuran). Kami memberikan klaim garansi retur/perbaikan jika terjadi kecacatan fatal akibat *human error* dari tim jahit kami.
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden faq-item transition-all duration-300">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none faq-btn">
+            <span class="font-semibold text-neutral-900 pr-5">Format file desain apa yang dibutuhkan?</span>
+            <svg class="w-5 h-5 text-brand-500 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 pt-0 text-sm text-neutral-600 leading-relaxed">
+            Untuk hasil cetak/sablon/bordir terbaik, harap sediakan file dalam format vector AI (Adobe Illustrator), CDR (CorelDraw), atau PDF vector. File PNG resolusi tinggi transparan juga bisa kami terima. Jika Anda tidak punya desainnya, tim internal kami siap membantu menggambarkannya!
+          </div>
         </div>
       </div>
     </div>
